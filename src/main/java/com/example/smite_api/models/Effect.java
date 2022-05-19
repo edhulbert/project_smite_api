@@ -8,6 +8,15 @@ public class Effect {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
+
+//    @Column
+//
+//    @Column
+//
+//    @Column
+
+
 
 }
