@@ -19,7 +19,7 @@ public class Effect {
     @Column(name = "description")
     private String desc;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "effects")
     private List<Ability> abilities;
 
     public Effect(String name, String desc) {

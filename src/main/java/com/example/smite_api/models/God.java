@@ -26,10 +26,15 @@ public class God {
     @Column
     private Integer money;
 
-    @OneToMany
+    @OneToMany(mappedBy = "god")
     private List<Ability> abilities;
 
     @ManyToMany
+    @JoinTable(
+            name = "gods_items",
+            joinColumns = {@JoinColumn(name = "god_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "item_id", nullable = false)}
+    )
     private List<Item> items;
 
     public God(String name, String pantheon, String type, Integer money, List<Item> items) {

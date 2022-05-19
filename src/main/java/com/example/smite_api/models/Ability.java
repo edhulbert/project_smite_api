@@ -22,9 +22,15 @@ public class Ability {
     private Integer cooldown;
 
     @ManyToOne
+    @JoinColumn(name = "god_id")
     private God god;
 
     @ManyToMany
+    @JoinTable(
+            name = "abilities_effects",
+            joinColumns = {@JoinColumn(name = "ability_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "effect_id", nullable = false)}
+    )
     private List<Effect> effects;
 
     public Ability(String name, String desc, Integer cooldown, God god, List<Effect> effects) {

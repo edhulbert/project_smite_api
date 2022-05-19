@@ -22,7 +22,7 @@ public class Item {
     @Column
     private Integer price;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "items")
     private List<God> gods;
 
     public Item(String name, String desc, Integer price) {
