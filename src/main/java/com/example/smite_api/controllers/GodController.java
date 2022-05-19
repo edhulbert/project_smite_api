@@ -39,6 +39,34 @@ public class GodController {
         return new ResponseEntity<>(god, HttpStatus.CREATED);
     }
 
+    // UPDATE
+    @PutMapping("/{id}")
+    public ResponseEntity<God> updateGod(@PathVariable Long id, @RequestBody God godUpdate) {
+//        var god = godRepository.findById(id);
+//        if(god.isEmpty()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        God _god = god.get();
+//        _god.setName(godUpdate.getName());
+//        _god.setPantheon(godUpdate.getPantheon());
+//        _god.setType(godUpdate.getType());
+//        _god.setMoney(godUpdate.getMoney());
+//        _god.setItems(godUpdate.getItems());
+//        godRepository.save(_god);
+//        return new ResponseEntity<>( HttpStatus.OK);
+        var god = godRepository.findById(id);
+        if (god.isPresent()) {
+            God _god = god.get();
+            _god.setName(godUpdate.getName());
+            _god.setPantheon(godUpdate.getPantheon());
+            _god.setType(godUpdate.getType());
+            _god.setMoney(godUpdate.getMoney());
+            _god.setItems(godUpdate.getItems());
+            godRepository.save(_god);
+            return new ResponseEntity<>(_god, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
+        }
+    }
+
     // DESTROY
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> destroyGodById(@PathVariable Long id) {
