@@ -113,13 +113,7 @@ public class Dataloader implements ApplicationRunner {
                 15,
                 god5,
                 Arrays.asList(effect5, effect4));
-        Ability ability9 = new Ability(
-                "Tectonic Rift",
-                "",
-                10,
-                god1,
-                Arrays.asList(effect1));
-        abilityRepository.saveAll(Arrays.asList(ability1,ability2,ability3,ability4,ability5,ability6,ability7,ability8,ability9));
+        abilityRepository.saveAll(Arrays.asList(ability1,ability2,ability3,ability4,ability5,ability6,ability7,ability8));
 
 
 

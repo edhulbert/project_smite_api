@@ -1,6 +1,8 @@
 package com.example.smite_api.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ public class God {
     private Integer money;
 
     @OneToMany(mappedBy = "god")
+    @JsonIgnoreProperties({"god"})
     private List<Ability> abilities;
 
     @ManyToMany
@@ -35,6 +38,7 @@ public class God {
             joinColumns = {@JoinColumn(name = "god_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "item_id", nullable = false)}
     )
+    @JsonIgnoreProperties({"gods"})
     private List<Item> items;
 
     public God(String name, String pantheon, String type, Integer money, List<Item> items) {

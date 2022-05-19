@@ -18,6 +18,7 @@ public class GodController {
     @Autowired
     GodRepository godRepository;
 
+    // INDEX
     @GetMapping
     public ResponseEntity<List<God>> getGods() {
         return new ResponseEntity<>(godRepository.findAll(), HttpStatus.OK);

@@ -1,5 +1,7 @@
 package com.example.smite_api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class Ability {
 
     @ManyToOne
     @JoinColumn(name = "god_id")
+    @JsonIgnoreProperties({"abilities"})
     private God god;
 
     @ManyToMany
@@ -31,6 +34,7 @@ public class Ability {
             joinColumns = {@JoinColumn(name = "ability_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "effect_id", nullable = false)}
     )
+    @JsonIgnoreProperties({"abilities"})
     private List<Effect> effects;
 
     public Ability(String name, String desc, Integer cooldown, God god, List<Effect> effects) {
