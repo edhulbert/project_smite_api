@@ -20,14 +20,18 @@ public class Item {
     private String desc;
 
     @Column
+    private Integer tier;
+
+    @Column
     private Integer price;
 
     @ManyToMany(mappedBy = "items")
     private List<God> gods;
 
-    public Item(String name, String desc, Integer price) {
+    public Item(String name, String desc, Integer tier, Integer price) {
         this.name = name;
         this.desc = desc;
+        this.tier = tier;
         this.price = price;
         this.gods = new ArrayList<>();
     }
@@ -52,6 +56,14 @@ public class Item {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public Integer getTier() {
+        return tier;
+    }
+
+    public void setTier(Integer tier) {
+        this.tier = tier;
     }
 
     public Integer getPrice() {
