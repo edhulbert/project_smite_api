@@ -32,6 +32,8 @@ public class Item {
         this.gods = new ArrayList<>();
     }
 
+    protected Item() {}
+
     public Long getId() {
         return id;
     }
