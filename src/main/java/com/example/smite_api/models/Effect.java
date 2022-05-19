@@ -22,7 +22,7 @@ public class Effect {
     private String desc;
 
     @ManyToMany(mappedBy = "effects")
-    @JsonIgnoreProperties({"effects"})
+    @JsonIgnoreProperties({"effects", "items"})
     private List<Ability> abilities;
 
     public Effect(String name, String desc) {

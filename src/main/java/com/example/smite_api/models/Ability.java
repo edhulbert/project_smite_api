@@ -25,7 +25,7 @@ public class Ability {
 
     @ManyToOne
     @JoinColumn(name = "god_id")
-    @JsonIgnoreProperties({"abilities"})
+    @JsonIgnoreProperties({"abilities", "items"})
     private God god;
 
     @ManyToMany
