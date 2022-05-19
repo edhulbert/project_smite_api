@@ -4,6 +4,11 @@ import com.example.smite_api.models.Ability;
 import com.example.smite_api.models.Effect;
 import com.example.smite_api.models.God;
 import com.example.smite_api.models.Item;
+import com.example.smite_api.repositories.AbilityRepository;
+import com.example.smite_api.repositories.EffectRepository;
+import com.example.smite_api.repositories.GodRepository;
+import com.example.smite_api.repositories.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -12,6 +17,18 @@ import java.util.Arrays;
 
 @Component
 public class Dataloader implements ApplicationRunner {
+
+    @Autowired
+    ItemRepository itemRepository;
+
+    @Autowired
+    GodRepository godRepository;
+
+    @Autowired
+    EffectRepository effectRepository;
+
+    @Autowired
+    AbilityRepository abilityRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -26,6 +43,7 @@ public class Dataloader implements ApplicationRunner {
         Item item7 = new Item("Steel Mail", "Health and Physical protection", 2, 1400);
         Item item8 = new Item("Charged Morningstar", "Physical Power", 2, 1200);
         Item item9 = new Item("Tiny Trinket", "Magican Power and Lifesteal", 1, 550);
+        itemRepository.saveAll(Arrays.asList(item1,item2,item3,item4,item5,item6,item7,item8,item9));
 
         // new up gods
         God god1 = new God("Thor", "Norse", "Assassin", 634, Arrays.asList(item3, item4, item6));
@@ -33,6 +51,8 @@ public class Dataloader implements ApplicationRunner {
         God god3 = new God("Ah Muzen Cab", "Maya", "Hunter", 3, Arrays.asList(item3, item4, item8));
         God god4 = new God("Sun Wukong", "Chinese", "Warrior", 422, Arrays.asList(item1, item7));
         God god5 = new God("Sobek", "Egyptian", "Guardian", 880, Arrays.asList(item1,item2,item6));
+        godRepository.saveAll(Arrays.asList(god1, god2, god3, god4, god5));
+
 
         // new up effects
         Effect effect1 = new Effect("Stun", "The affected god cannot move or use abilities");
@@ -42,6 +62,7 @@ public class Dataloader implements ApplicationRunner {
         Effect effect5 = new Effect("Damage", "The affected god takes damage");
         Effect effect6 = new Effect("DamageOverTime", "The affected god takes damage every few game ticks");
         Effect effect7 = new Effect("Slow", "The affected god's movement speed is reduced");
+        effectRepository.saveAll(Arrays.asList(effect1,effect2,effect3,effect4,effect5,effect6,effect7));
 
         // new up abilities
         Ability ability1 = new Ability(
@@ -98,6 +119,9 @@ public class Dataloader implements ApplicationRunner {
                 10,
                 god1,
                 Arrays.asList(effect1));
+        abilityRepository.saveAll(Arrays.asList(ability1,ability2,ability3,ability4,ability5,ability6,ability7,ability8,ability9));
+
+
 
         // other ways of structuring
         // new up items
