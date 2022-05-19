@@ -28,7 +28,7 @@ public class Item {
     private Integer price;
 
     @ManyToMany(mappedBy = "items")
-    @JsonIgnoreProperties({"items"})
+    @JsonIgnoreProperties({"items", "abilities"})
     private List<God> gods;
 
     public Item(String name, String desc, Integer tier, Integer price) {
