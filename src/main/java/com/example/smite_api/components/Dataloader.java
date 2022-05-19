@@ -12,6 +12,7 @@ public class Dataloader implements ApplicationRunner {
 
         // new up items
 
+
         // new up gods
 
         // new up effects
