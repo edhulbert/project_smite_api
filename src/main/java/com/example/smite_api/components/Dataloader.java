@@ -1,5 +1,6 @@
 package com.example.smite_api.components;
 
+import com.example.smite_api.models.Ability;
 import com.example.smite_api.models.Effect;
 import com.example.smite_api.models.God;
 import com.example.smite_api.models.Item;
@@ -27,7 +28,7 @@ public class Dataloader implements ApplicationRunner {
         Item item9 = new Item("Tiny Trinket", "Magican Power and Lifesteal", 1, 550);
 
         // new up gods
-        God god1 = new God("Loki", "Norse", "Assassin", 634, Arrays.asList(item3, item4, item6));
+        God god1 = new God("Thor", "Norse", "Assassin", 634, Arrays.asList(item3, item4, item6));
         God god2 = new God("Aphrodite", "Greek", "Mage", 2600, Arrays.asList(item9));
         God god3 = new God("Ah Muzen Cab", "Maya", "Hunter", 3, Arrays.asList(item3, item4, item8));
         God god4 = new God("Sun Wukong", "Chinese", "Warrior", 422, Arrays.asList(item1, item7));
@@ -35,15 +36,68 @@ public class Dataloader implements ApplicationRunner {
 
         // new up effects
         Effect effect1 = new Effect("Stun", "The affected god cannot move or use abilities");
-        Effect effect2 = new Effect("Knock-up", "The affected god is knocked upwards");
+        Effect effect2 = new Effect("Knock-back", "The affected god is knocked backwards");
         Effect effect3 = new Effect("Silence", "The affected god cannot use abilities");
         Effect effect4 = new Effect("Heal", "The affected god has health replenished");
         Effect effect5 = new Effect("Damage", "The affected god takes damage");
         Effect effect6 = new Effect("DamageOverTime", "The affected god takes damage every few game ticks");
+        Effect effect7 = new Effect("Slow", "The affected god's movement speed is reduced");
 
         // new up abilities
-
-
+        Ability ability1 = new Ability(
+                "Tectonic Rift",
+                "Thor slams his hammer on the ground, causing a fissure to appear in front of him, Stunning enemies and blocking movement.",
+                10,
+                god1,
+                Arrays.asList(effect1));
+        Ability ability2 = new Ability(
+                "Anvil of Dawn",
+                "Thor leaps into the air. Thor can target a great distance away to come crashing down in the area, dealing damage and Stunning all enemies in the radius.",
+                120,
+                god1,
+                Arrays.asList(effect1, effect5));
+        Ability ability3 = new Ability(
+                "Back Off!",
+                "Aphrodite commands enemies to get away from her, doing damage around her, slowing them by 25% for 2s and knocking them back.",
+                12,
+                god2,
+                Arrays.asList(effect2, effect5, effect7));
+        Ability ability4 = new Ability(
+                "Love Birds",
+                "Aphroditie calls forth a flock of doves that damage enemies and heal allies",
+                15,
+                god2,
+                Arrays.asList(effect4, effect6));
+        Ability ability5 = new Ability(
+                "Stinger",
+                "Ah Muzen Cab fires off an enormous stinger that deals damage to all enemies in a line, sticking into the first god that is hit, applying DOT and Slowing",
+                150,
+                god3,
+                Arrays.asList(effect5, effect6));
+        Ability ability6 = new Ability(
+                "The Magic Cudgel",
+                "Sun Wukong's Magic Cudgel grows in length, and he slams it down, damaging all enemies in front of him.",
+                12,
+                god4,
+                Arrays.asList(effect5));
+        Ability ability7 = new Ability(
+                "Tail Whip",
+                "Sobek whips around in a circle, knocking enemies back and doing damage.",
+                20,
+                god5,
+                Arrays.asList(effect2, effect5));
+        Ability ability8 = new Ability(
+                "Sickening Strike",
+                "Sobek does an axe attack that damages all enemies in front of him. In addition, Sobek heals for each enemy hit.",
+                15,
+                god5,
+                Arrays.asList(effect5, effect4));
+        Ability ability9 = new Ability(
+                "Tectonic Rift",
+                "",
+                10,
+                god1,
+                Arrays.asList(effect1));
 
         // other ways of structuring
         // new up items
